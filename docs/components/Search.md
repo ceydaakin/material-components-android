@@ -530,7 +530,10 @@ the scrolling view (usually a `RecyclerView` or `NestedScrollView`) in the
 `app:layout_behavior="@string/appbar_scrolling_view_behavior"` on the scrolling
 view. On the `SearchBar`, set `app:liftOnScroll=true` and set a
 `app:liftOnScrollColor` to change the color of the `SearchBar` as the
-`AppBarLayout` is lifting.
+`AppBarLayout` is lifting. Also set `app:defaultScrollFlagsEnabled=false` on the
+`SearchBar`; otherwise it gets the default scroll-away scroll flags
+(`scroll|enterAlways|snap|snapMargins`) and scrolls off screen instead of
+lifting.
 
 See the [putting it all together](#putting-it-all-together) section below for an
 example of how to set up this behavior.
@@ -605,6 +608,7 @@ Alternatively, an example of the lift on scroll mode is below:
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/searchbar_hint"
+        app:defaultScrollFlagsEnabled="false"
         app:liftOnScroll="true"
         app:liftOnScrollColor="?attr/colorSurfaceContainerHighest"/>
   </com.google.android.material.appbar.AppBarLayout>
